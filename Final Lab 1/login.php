@@ -6,7 +6,7 @@
     <body>
         <center><h1>Login</h1></center>
         <center>
-            <form action="dashboard.php" method="POST">
+            <form action="" method="POST">
                 <table>
                     <tr>
                         <td align="left">User Name:</td>
