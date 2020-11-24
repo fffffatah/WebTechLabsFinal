@@ -32,8 +32,7 @@
             if(!$conn){
                 die("Connection Failed: ".mysqli_connect_error());
 			}
-			
-			$passencrypt=$pass;
+
 			$passencrypt=md5($pass);
 			
 			$query="SELECT * FROM users";

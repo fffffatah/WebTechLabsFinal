@@ -78,7 +78,6 @@
                 die("Connection Failed: ".mysqli_connect_error());
             }
 
-            $passencrypt=$pass;
             $passencrypt=md5($pass);
 
             if(strcmp($type,"User")==0){
