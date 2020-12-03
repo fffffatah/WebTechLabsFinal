@@ -1,4 +1,9 @@
-<?php include 'admin_header.php';?>
+<?php 
+	include 'admin_header.php';
+	require_once '../controllers/CategoriesController.php';
+	require_once '../controllers/ProductsController.php';
+	$categories=getAllCategory();
+?>
 <!--All Categories starts -->
 
 <div class="center">
@@ -13,11 +18,19 @@
 			
 		</thead>
 		<tbody>
-			<td>1</td>
-			<td>Groserry</td>
-			<td>100</td>
-			<td><a href="editcategory.php" class="btn btn-success">Edit</a></td>
-			<td><a class="btn btn-danger">Delete</td>
+			<?php
+			 	$i=1;
+				foreach($categories as $cat){
+					echo "<tr>";
+					echo "<td>".$i."</td>";
+					echo "<td>".$cat["name"]."</td>";
+					echo "<td>".getNumOfProductByCategoryId($cat["id"])."</td>";
+					echo "<td><a href=\"editcategory.php?category_id=".$cat["id"]."\" class=\"btn btn-success\">Edit</a></td>";
+					echo "<td><a href=\"delete_category.php?category_id=".$cat["id"]."\" class=\"btn btn-danger\" target=\"_blank\">Delete</td>";
+					echo "</tr>";
+					$i++;
+				}
+			?>	
 		</tbody>
 	</table>
 </div>
