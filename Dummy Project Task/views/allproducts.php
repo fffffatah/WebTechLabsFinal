@@ -1,4 +1,12 @@
-<?php include 'admin_header.php';?>
+<?php
+	if(!isset($_COOKIE["username"])){
+		header("Location: login.php");
+	}
+	include 'admin_header.php';
+	require_once '../controllers/CategoriesController.php';
+	require_once '../controllers/ProductsController.php';
+	$products=getAllProduct();
+?>
 <!--All Products starts -->
 
 <div class="center">
@@ -15,13 +23,21 @@
 			
 		</thead>
 		<tbody>
-			<td>1</td>
-			<td>Groserry</td>
-			<td>100</td>
-			<td>10</td>
-			<td>10.2.2020</td>
-			<td><a href="editproduct.php" class="btn btn-success">Edit</a></td>
-			<td><a class="btn btn-danger">Delete</td>
+		<?php
+			$i=1;
+			foreach($products as $prod){
+				echo "<tr>";
+				echo "<td>".$i."</td>";
+				echo "<td>".$prod["name"]."</td>";
+				echo "<td>".getCategoryName($prod["category_id"])."</td>";
+				echo "<td>".$prod["price"]."</td>";
+				echo "<td>".$prod["quantity"]."</td>";
+				echo "<td><a href=\"editproduct.php?product_id=".$prod["id"]."\" class=\"btn btn-success\">Edit</a></td>";
+				echo "<td><a href=\"delete_product.php?product_id=".$prod["id"]."\" class=\"btn btn-danger\" target=\"_blank\">Delete</td>";
+				echo "</tr>";
+				$i++;
+			}
+		?>	
 		</tbody>
 	</table>
 </div>

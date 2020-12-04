@@ -30,6 +30,9 @@
         }
         if(!$hasError){
            if(getUser()){
+               session_start();
+               $_SESSION["username"] = $username;
+               setcookie("username",$username,time() + 360);
                header("Location: dashboard.php");
            }
            else{

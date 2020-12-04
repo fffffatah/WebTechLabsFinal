@@ -1,4 +1,7 @@
 <?php
+	if(!isset($_COOKIE["username"])){
+		header("Location: login.php");
+	}
 	include 'admin_header.php';
 	require_once '../controllers/CategoriesController.php';
 ?>

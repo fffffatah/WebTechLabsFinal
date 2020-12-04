@@ -1,4 +1,7 @@
 <?php 
+	if(!isset($_COOKIE["username"])){
+		header("Location: login.php");
+	}
 	include 'admin_header.php';
 	require_once '../controllers/CategoriesController.php';
 	$categories=getAllCategory();
@@ -10,7 +13,7 @@
 	<form action="" method="POST" enctype="multipart/form-data" class="form-horizontal form-material">
 		<div class="form-group">
 			<h4 class="text">Name:</h4> 
-			<input type="text" name="name" class="form-control">
+			<input type="text" name="name" value="<?php echo $name; ?>" class="form-control">
 			<h6 style="color:red;"><?php echo "* ".$err_name; ?></h6>
 		</div>
 		<div class="form-group">
@@ -27,17 +30,17 @@
 		</div>
 		<div class="form-group">
 			<h4 class="text">Price:</h4> 
-			<input type="number" name="price" class="form-control">
+			<input type="number" name="price" value="<?php echo $price; ?>" class="form-control">
 			<h6 style="color:red;"><?php echo "* ".$err_price; ?></h6>
 		</div>
 		<div class="form-group">
 			<h4 class="text">Quantity:</h4> 
-			<input type="number" name="quantity" class="form-control">
+			<input type="number" name="quantity" value="<?php echo $quantity; ?>" class="form-control">
 			<h6 style="color:red;"><?php echo "* ".$err_quantity; ?></h6>
 		</div>
 		<div class="form-group">
 			<h4 class="text">Description:</h4> 
-			<textarea type="text" name="description" class="form-control"></textarea>
+			<textarea type="text" name="description" value="<?php echo $description; ?>" class="form-control"></textarea>
 			<h6 style="color:red;"><?php echo "* ".$err_description; ?></h6>
 		</div>
 		<div class="form-group">

@@ -9,7 +9,7 @@
 	<form action="" method="POST" class="form-horizontal form-material">
 		<div class="form-group">
 			<h4 class="text">Username</h4> 
-			<input type="text" name="username" class="form-control">
+			<input type="text" name="username" value="<?php echo $username; ?>" class="form-control">
 			<h6 style="color:red;"><?php echo "* ".$err_username; ?></h6>
 		</div>
 		<div class="form-group">

@@ -1,4 +1,9 @@
-<?php include 'admin_header.php';?>
+<?php
+	if(!isset($_COOKIE["username"])){
+		header("Location: login.php");
+	}
+	include 'admin_header.php';
+?>
 <!--dashboard starts -->
 <div>
 	<table  align="center">
