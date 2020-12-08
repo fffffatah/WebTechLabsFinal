@@ -5,7 +5,7 @@
     if(isset($_POST["login"])){
         $username = htmlspecialchars($_POST["username"]);
         $password = md5(htmlspecialchars($_POST["password"]));
-        if(getUser()){
+        if(getUser($username,$password)){
             header("Location: ../views/dashboard.php");
         }
         else{
@@ -18,12 +18,11 @@
         $phone=htmlspecialchars($_POST["phone"]);
         $username = htmlspecialchars($_POST["username"]);
         $password = md5(htmlspecialchars($_POST["password"]));
-        addUser();
+        addUser($name,$username,$email,$password,$phone);
         header("Location: ../views/login.php");
     }
     
-    function getUser(){
-        global $username,$password;
+    function getUser($username,$password){
         $query="SELECT * FROM users WHERE username='$username' AND password='$password'";
         $result=doQuery($query);
         if(count($result)>0){
@@ -35,8 +34,7 @@
         $query="SELECT * FROM users";
         return doQuery($query);
     }
-    function addUser(){
-        global $name,$username,$email,$password,$phone;
+    function addUser($name,$username,$email,$password,$phone){
         $query="INSERT INTO users VALUES('$name','$username','$password','$email','$phone')";
         doNoQuery($query);
     }
