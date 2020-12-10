@@ -1,3 +1,6 @@
+<?php
+    require_once '../controllers/user_controller.php';
+?>
 <html>
     <head>
         <title>Login</title>
@@ -5,7 +8,7 @@
     <body>
         <center><h1>Login</h1></center>
         <center>
-        <form action="../controllers/user_controller.php" method="post" onsubmit="return doLoginValidation()">
+        <form action="" method="post" onsubmit="return doLoginValidation()">
             <input type="text" id="username" placeholder="Username" name="username"><span id="err_username" style="color:red;"></span><br>
             <input type="password" id="password" placeholder="Password" name="password"><span id="err_password" style="color:red;"></span><br>
             <input type="submit" name="login" value="Login">

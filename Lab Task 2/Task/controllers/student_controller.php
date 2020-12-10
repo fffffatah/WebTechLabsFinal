@@ -7,7 +7,7 @@
         $dob=$_POST["dob"];
         $credit=$_POST["credit"];
         $cgpa=$_POST["cgpa"];
-        $dept_id=$_POST["dept_id"];
+        $dept_id=$_POST["dept"];
         addStudent($name,$dob,$credit,$cgpa,$dept_id);
     }
     
@@ -16,7 +16,7 @@
         $dob=$_POST["dob"];
         $credit=$_POST["credit"];
         $cgpa=$_POST["cgpa"];
-        $dept_id=$_POST["dept_id"];
+        $dept_id=$_POST["dept"];
         editStudent($name,$dob,$credit,$cgpa,$dept_id,$_GET["id"]);
     }
 

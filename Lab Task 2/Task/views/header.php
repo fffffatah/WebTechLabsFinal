@@ -10,7 +10,7 @@
                     <td><a href="dashboard.php">Dashboard</a></td>
                     <td><a href="all_students.php">All Students</a></td>
                     <td><a href="add_student.php">Add Student</a></td>
-                    <td><a href="">All Departments</a></td>
+                    <td><a href="dashboard.php">All Departments</a></td>
                     <td><a href="login.php">Logout</a></td>
                 </tr>
             </table>

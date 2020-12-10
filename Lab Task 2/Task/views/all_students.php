@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_COOKIE["username"])){
+        header("Location: login.php");
+    }
     include 'header.php';
     require_once '../controllers/student_controller.php';
     $students=getStudents();
@@ -7,7 +10,7 @@
         <h4>Students</h4>
         <table border="2">
             <tr>
-                <td>Name</td>
+                <td>NAME</td>
                 <td>DOB</td>
                 <td>CREDIT</td>
                 <td>CGPA</td>

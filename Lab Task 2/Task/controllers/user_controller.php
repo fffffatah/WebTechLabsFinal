@@ -6,6 +6,9 @@
         $username = htmlspecialchars($_POST["username"]);
         $password = md5(htmlspecialchars($_POST["password"]));
         if(getUser($username,$password)){
+            session_start();
+            $_SESSION["username"] = $username;
+            setcookie("username",$username,time() + 360);
             header("Location: ../views/dashboard.php");
         }
         else{

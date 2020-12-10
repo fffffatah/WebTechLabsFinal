@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_COOKIE["username"])){
+		header("Location: login.php");
+	}
     include 'header.php';
     require_once '../controllers/user_controller.php';
     require_once '../controllers/student_controller.php';

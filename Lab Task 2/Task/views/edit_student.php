@@ -6,6 +6,7 @@
     require_once '../models/db_conn.php';
     require_once '../controllers/student_controller.php';
     require_once '../controllers/department_controller.php';
+    $student=getStudent($_GET["id"]);
     $depts=getDepts();
 ?>
 <center>
@@ -13,7 +14,7 @@
         <table>
             <tr>
                 <td>Name:</td>
-                <td><input type="text" name="name" id="name"><span id="err_name" style="color:red;"></span></td>
+                <td><input type="text" name="name" value="<?php echo $student[0]["name"];?>" id="name"><span id="err_name" style="color:red;"></span></td>
             </tr>
             <tr>
                 <td>DOB:</td>
@@ -21,17 +22,17 @@
             </tr>
             <tr>
                 <td>Credit:</td>
-                <td><input type="number" name="credit" id="credit"><span id="err_credit" style="color:red;"></span></td>
+                <td><input type="number" name="credit" value="<?php echo $student[0]["credit"];?>" id="credit"><span id="err_credit" style="color:red;"></span></td>
             </tr>
             <tr>
                 <td>CGPA:</td>
-                <td><input type="number" step="0.01" name="cgpa" id="cgpa"><span id="err_cgpa" style="color:red;"></span></td>
+                <td><input type="number" step="0.01" name="cgpa" value="<?php echo $student[0]["cgpa"];?>" id="cgpa"><span id="err_cgpa" style="color:red;"></span></td>
             </tr>
             <tr>
                 <td>Department:</td>
                 <td>
                     <select name="dept" id="dept">
-                        <option disabled selected value="Select"></option>
+                        <option disabled selected value=""></option>
                         <?php
                             foreach($depts as $dept){
                                 echo "<option value='".$dept["id"]."'>".$dept["name"]."</option>";
@@ -43,7 +44,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="add" value="Add"></td>
+                <td><input type="submit" name="edit" value="Update"></td>
             </tr>
         </table>
     </form>
