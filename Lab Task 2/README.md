@@ -1,0 +1,1 @@
+DOCS directory contains database script.
